@@ -1,8 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { currentUser } from "@clerk/nextjs";
 
 export default async function Home() {
+  const user = await currentUser();
+  console.log(user);
   return (
     <>
       <section className='bg-primary-50 bg-dotted-pattern bg-contain py-5 md:py-10'>
