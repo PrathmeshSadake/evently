@@ -1,4 +1,5 @@
 import CheckoutButton from "@/components/CheckoutButton";
+import Collection from "@/components/Collection";
 // import Collection from "@/components/Collection";
 import {
   getEventById,
@@ -70,10 +71,10 @@ const EventDetails = async ({
                     {formatDateTime(event.startDateTime).dateOnly} -{" "}
                     {formatDateTime(event.startDateTime).timeOnly}
                   </p>
-                  <p>
+                  {/* <p>
                     {formatDateTime(event.endDateTime).dateOnly} -{" "}
                     {formatDateTime(event.endDateTime).timeOnly}
-                  </p>
+                  </p> */}
                 </div>
               </div>
 
@@ -103,7 +104,7 @@ const EventDetails = async ({
       <section className='wrapper my-8 flex flex-col gap-8 md:gap-12'>
         <h2 className='h2-bold'>Related Events</h2>
 
-        {/* <Collection
+        <Collection
           data={relatedEvents?.data}
           emptyTitle='No Events Found'
           emptyStateSubtext='Come back later'
@@ -111,7 +112,7 @@ const EventDetails = async ({
           limit={3}
           page={searchParams.page as string}
           totalPages={relatedEvents?.totalPages}
-        /> */}
+        />
       </section>
     </>
   );

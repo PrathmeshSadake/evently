@@ -1,4 +1,4 @@
-// import Collection from "@/components/Collection";
+import Collection from "@/components/Collection";
 import { Button } from "@/components/ui/button";
 import { getEventsByUser } from "@/lib/actions/event.actions";
 // import { getOrdersByUser } from "@/lib/actions/order.actions";
@@ -15,10 +15,10 @@ const ProfilePage = async ({ searchParams }: SearchParamProps) => {
   const ordersPage = Number(searchParams?.ordersPage) || 1;
   const eventsPage = Number(searchParams?.eventsPage) || 1;
 
-  //   const orders = await getOrdersByUser({ userId, page: ordersPage });
+  // const orders = await getOrdersByUser({ userId, page: ordersPage });
 
-  //   const orderedEvents = orders?.data.map((order: IOrder) => order.event) || [];
-  //   const organizedEvents = await getEventsByUser({ userId, page: eventsPage });
+  // const orderedEvents = orders?.data.map((order: IOrder) => order.event) || [];
+  const organizedEvents = await getEventsByUser({ userId, page: eventsPage });
 
   return (
     <>
@@ -56,7 +56,7 @@ const ProfilePage = async ({ searchParams }: SearchParamProps) => {
       </section>
 
       <section className='wrapper my-8'>
-        {/* <Collection
+        <Collection
           data={organizedEvents?.data}
           emptyTitle='No events have been created yet'
           emptyStateSubtext='Go create some now'
@@ -65,7 +65,7 @@ const ProfilePage = async ({ searchParams }: SearchParamProps) => {
           page={eventsPage}
           urlParamName='eventsPage'
           totalPages={organizedEvents?.totalPages}
-        /> */}
+        />
       </section>
     </>
   );
